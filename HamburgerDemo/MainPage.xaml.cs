@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.Phone.UI.Input;
 using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
@@ -22,7 +23,7 @@ namespace HamburgerDemo
     public sealed partial class MainPage : Page
     {
         bool _isInSide = false;
-        private TranslateTransform transfer = new TranslateTransform();
+        TranslateTransform transfer = new TranslateTransform();
         double _oriXPosition = 0;
 
         public MainPage()
@@ -81,6 +82,45 @@ namespace HamburgerDemo
                 _isInSide = true;
             }
         }
+
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            HardwareButtons.BackPressed += HardwareButtons_BackPressed;
+
+            Frame.BackStack.Clear();
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            HardwareButtons.BackPressed -= HardwareButtons_BackPressed;
+            if (_isInSide)
+            {
+                SideOutStory.Begin();
+                HamOutStory.Begin();
+                _isInSide = false;
+                return;
+            }
+        }
+
+        private void HardwareButtons_BackPressed(object sender, BackPressedEventArgs e)
+        {
+            if (_isInSide)
+            {
+                e.Handled = true;
+                SideOutStory.Begin();
+                HamOutStory.Begin();
+                _isInSide = false;
+                return;
+            }
+            Frame rootframe = Window.Current.Content as Frame;
+            if (rootframe != null && rootframe.CanGoBack)
+            {
+                e.Handled = true;
+                rootframe.GoBack();
+            }
+        }
+
+        
 
         private void TapTranBorder(object sender, RoutedEventArgs e)
         {
