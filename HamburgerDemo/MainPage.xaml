@@ -5,8 +5,7 @@
     xmlns:local="using:HamburgerDemo"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-    mc:Ignorable="d"
-    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    mc:Ignorable="d">
     <Page.Resources>
         <Storyboard x:Name="SideInStory">
             <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.RenderTransform).(CompositeTransform.TranslateX)" Storyboard.TargetName="Side">
@@ -125,7 +124,10 @@
             </DoubleAnimationUsingKeyFrames>
         </Storyboard>
     </Page.Resources>
-    <Grid x:Name="ContentGrid" Background="{StaticResource MyerPlantBlack}" ManipulationMode="TranslateX">
+    <Page.Background>
+        <StaticResource ResourceKey="Black"/>
+    </Page.Background>
+    <Grid x:Name="ContentGrid" Background="{StaticResource Black}" ManipulationMode="TranslateX">
         <Grid.RowDefinitions>
             <RowDefinition Height="70"/>
             <RowDefinition Height="537*"/>
@@ -133,8 +135,8 @@
 
         </Grid.RowDefinitions>
 
-        <Grid Grid.Row="1" Background="{StaticResource MyerPlantWhite}" Grid.RowSpan="2">
-            <Border Height="50"  VerticalAlignment="Top" Background="{StaticResource MyerPlantBlack}">
+        <Grid Grid.Row="1" Background="{StaticResource White}" Grid.RowSpan="2">
+            <Border Height="50"  VerticalAlignment="Top" Background="{StaticResource Black}">
 
             </Border>
             <Pivot Margin="5,-10,0,10">
@@ -144,23 +146,23 @@
                     </DataTemplate>
                 </Pivot.HeaderTemplate>
                 <PivotItem Header="Item1" Margin="0,23,0,-0.333">
-                
+
                 </PivotItem>
                 <PivotItem Header="Item2" Margin="0,23,0,-0.333">
-                   
+
                 </PivotItem>
                 <PivotItem Header="Item3" Margin="0,23,0,-0.333">
-                   
+
                 </PivotItem>
                 <PivotItem Header="Item4" Margin="0,23,0,-0.333">
 
                 </PivotItem>
             </Pivot>
         </Grid>
-        <Grid Grid.Row="0" Background="{StaticResource MyerPlantBlack}">
+        <Grid Grid.Row="0" Background="{StaticResource Black}">
             <StackPanel Orientation="Horizontal">
-                <Button Click="HamburgerClick"  Width="50" Height="50" MinWidth="10" MinHeight="10" BorderThickness="0" Style="{StaticResource ButtonStyle2}" Background="{StaticResource MyerPlantBlack}" Margin="10,0,0,0">
-                    <Grid x:Name="grid" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" RenderTransformOrigin="0.5,0.5" Background="{StaticResource MyerPlantBlack}">
+                <Button Click="HamburgerClick"  Width="50" Height="50" MinWidth="10" MinHeight="10" BorderThickness="0" Style="{StaticResource ButtonStyle2}" Background="{StaticResource Black}" Margin="10,0,0,0">
+                    <Grid x:Name="grid" Height="50" Width="50" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0" RenderTransformOrigin="0.5,0.5" Background="{StaticResource Black}">
                         <Grid.RenderTransform>
                             <CompositeTransform/>
                         </Grid.RenderTransform>
@@ -184,7 +186,7 @@
                 <TextBlock  FontSize="35" VerticalAlignment="Center" Margin="15,0,0,0">
                 <Run FontWeight="Light" Foreground="White">HamburgerDemo</Run>
                 </TextBlock>
-                
+
             </StackPanel>
 
         </Grid>
@@ -194,7 +196,7 @@
             <Grid.RenderTransform>
                 <CompositeTransform TranslateX="-501"/>
             </Grid.RenderTransform>
-            <Border BorderThickness="0" Tapped="TapTranBorder" Background="{StaticResource MyerPlantBlack}" Opacity="0.0035"/>
+            <Border BorderThickness="0" Tapped="TapTranBorder" Background="{StaticResource Black}" Opacity="0.0035"/>
             <Grid Background="White" Margin="0,0,138,0">
                 <Grid MinHeight="200" Background="Black" VerticalAlignment="Top">
                     <Image Source="Assets/drawerGrd.jpg" MaxHeight="200"  Stretch="UniformToFill" />
@@ -209,13 +211,13 @@
                 <StackPanel VerticalAlignment="Bottom">
                     <Button HorizontalAlignment="Stretch" Command="{Binding SettingCommand}" VerticalAlignment="Bottom" Style="{StaticResource ButtonStyle2}" Margin="0" Background="White" BorderThickness="0" BorderBrush="{x:Null}" Height="27" HorizontalContentAlignment="Left" FontSize="16">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock x:Name="SettingBtnBlock"  Foreground="{StaticResource MyerPlantBlack}" Text="SETTING" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                            <TextBlock x:Name="SettingBtnBlock"  Foreground="{StaticResource Black}" Text="SETTING" VerticalAlignment="Center" Margin="10,0,0,0"/>
                         </StackPanel>
 
                     </Button>
                     <Button HorizontalAlignment="Stretch" Command="{Binding AboutCommand}" VerticalAlignment="Bottom" Style="{StaticResource ButtonStyle2}" Margin="0" Background="White" BorderThickness="0" BorderBrush="{x:Null}" Height="27" HorizontalContentAlignment="Left" FontSize="16">
                         <StackPanel Orientation="Horizontal">
-                            <TextBlock x:Name="AboutBtnBlock"   Text="ABOUT" Foreground="{StaticResource MyerPlantBlack}" VerticalAlignment="Center" Margin="10,0,0,0"/>
+                            <TextBlock x:Name="AboutBtnBlock"   Text="ABOUT" Foreground="{StaticResource Black}" VerticalAlignment="Center" Margin="10,0,0,0"/>
                         </StackPanel>
                     </Button>
 

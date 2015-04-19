@@ -4,9 +4,9 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:local="using:HamburgerDemo">
     <Application.Resources>
-        <SolidColorBrush x:Key="MyerPlantTheme">#FF43C590</SolidColorBrush>
-        <SolidColorBrush x:Key="MyerPlantBlack">#FF303030</SolidColorBrush>
-        <SolidColorBrush x:Key="MyerPlantWhite">#FFE8E8E8</SolidColorBrush>
+        <SolidColorBrush x:Key="Theme">#FF43C590</SolidColorBrush>
+        <SolidColorBrush x:Key="Black">#FF303030</SolidColorBrush>
+        <SolidColorBrush x:Key="White">#FFE8E8E8</SolidColorBrush>
         <x:Int32 x:Key="PivotHeaderFontsize">20</x:Int32>
         <Thickness x:Key="PhoneBorderThickness">2.5</Thickness>
         <FontFamily x:Key="PhoneFontFamilyNormal">Segoe WP</FontFamily>
